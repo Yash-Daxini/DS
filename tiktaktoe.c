@@ -1,6 +1,5 @@
 #include"stdio.h"
 
-
 int a[3][3],i,j,choice;
 
 
@@ -78,7 +77,6 @@ char input(int c)
         if( a[0][0] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[0][0]=c;
         count++;
@@ -87,7 +85,6 @@ char input(int c)
         if( a[0][1] != ' ')
         {
             printf("\nThis spot is already taken choose , another\n");
-            input(c);
         }
         a[0][1]=c;
         count++;
@@ -96,7 +93,6 @@ char input(int c)
         if( a[0][2] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[0][2]=c;
         count++;
@@ -105,7 +101,6 @@ char input(int c)
         if( a[1][0] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[1][0]=c;
         count++;
@@ -114,7 +109,6 @@ char input(int c)
         if( a[1][1] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[1][1]=c;
         count++;
@@ -123,7 +117,6 @@ char input(int c)
         if( a[1][2] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[1][2]=c;
         count++;
@@ -132,7 +125,6 @@ char input(int c)
         if( a[2][0] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[2][0]=c;
         count++;
@@ -141,7 +133,6 @@ char input(int c)
         if( a[2][1] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
-            input(c);
         }
         a[2][1]=c;
         count++;
@@ -150,7 +141,6 @@ char input(int c)
         if( a[2][2] != ' ')
         {
             printf("\nThis spot is already taken choose another\n");
-            input(c);
         }
         a[2][2]=c;
         count++;
@@ -161,8 +151,8 @@ char input(int c)
     }
     cinput(d);
     display();
+    winlose();
    }
-   winlose();
 }
 
 
@@ -183,33 +173,54 @@ void display()
 
 void winlose()
 {
+    int count=0;
     if( (a[0][0] == c && a[0][1] == c && a[0][2] == c) ||  ( a[1][0] == c && a[1][1] == c &&  a[1][2] == c ) || ( a[2][0] == c && a[2][1] == c &&  a[2][2] == c) )
     {
         printf("\n\tYOU WIN\n");
+        exit(1);
     }
     else if( (a[0][0] == c && a[1][0] == c &&  a[2][0] == c) ||  ( a[0][1] == c && a[1][1] == c && a[2][1] == c ) || ( a[0][2] == c &&  a[1][2] == c &&  a[2][2] == c) )
     {
         printf("\n\tYOU WIN\n");
+        exit(1);
     }
-    else if(( a[0][0] == c && a[1][1] == c && a[2][1] == c ) ||  ( a[1][0] == c && a[1][1] == c && a[1][2] == c) || ( a[2][0] == c && a[2][1] == c && a[2][2] == c) )
+    else if(( a[0][0] == c && a[1][1] == c && a[2][2] == c ) ||  ( a[2][0] == c && a[1][1] == c && a[0][2] == c) )
     {
         printf("\n\tYOU WIN\n");
+        exit(1);
     }
     else if( (a[0][0] == d && a[0][1] == d && a[0][2] == d) ||  ( a[1][0] == d && a[1][1] == d &&  a[1][2] == d ) || ( a[2][0] == d && a[2][1] == d &&  a[2][2] == d ) )
     {
         printf("\n\tYOU LOSE\n");
+        exit(1);
     }
     else if( (a[0][0] == d && a[1][0] == d &&  a[2][0] == d ) ||  ( a[0][1] == d && a[1][1] == d && a[2][1] == d ) || ( a[0][2] == d &&  a[1][2] == d &&  a[2][2] == d) )
     {
         printf("\n\tYOU LOSE\n");
+        exit(1);
     }
-    else if( (a[0][0] == d && a[1][1] == d && a[2][1] == d ) ||  ( a[1][0] == d && a[1][1] == d && a[1][2] == d ) || ( a[2][0] == d && a[2][1] == d && a[2][2] == d ) )
+    else if( (a[0][0] == d && a[1][1] == d && a[2][2] == d ) ||  ( a[2][0] == d && a[1][1] == d && a[0][2] == d )  )
     {
         printf("\n\tYOU LOSE\n");
+        exit(1);
     }
     else
     {
-        printf("\n\tMatch draw\n");
+        for(i=0;i<3;i++)
+        {
+            for(j=0;j<3;j++)
+            {
+                if( a[i][j] != ' ')
+                {
+                    count++;
+                }
+            }
+        }
+        if(count == 9)
+        {
+            printf("\n\tMatch draw\n");
+            exit(1);
+        }
     }
 }
 
@@ -217,6 +228,392 @@ void winlose()
 
 void cinput(char d)
 {
+    if( a[0][0] == d && a[1][0] == d )
+    {
+        if( a[2][0] == ' ')
+        {
+            a[2][0]=d;
+        }
+        return;
+    }
+    if( a[0][0] == d && a[2][0] == d )
+    {
+        if( a[1][0] == ' ')
+        {
+            a[1][0]=d;
+        }
+        return;
+    }
+    if( a[1][0] == d && a[2][0] == d )
+    {
+        if( a[0][0] == ' ')
+        {
+            a[0][0]=d;
+        }
+        return;
+    }
+    if( a[0][1] == d && a[1][1] == d )
+    {
+        if( a[2][1] == ' ')
+        {
+            a[2][1]=d;
+        }
+        return;
+    }
+    if( a[0][1] == d && a[2][1] == d )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == d && a[2][1] == d )
+    {
+        if( a[0][1] == ' ')
+        {
+            a[0][1]=d;
+        }
+        return;
+    }
+    if( a[0][2] == d && a[1][2] == d )
+    {
+        if( a[2][2] == ' ')
+        {
+            a[2][2]=d;
+        }
+        return;
+    }
+    if( a[0][2] == d && a[2][2] == d )
+    {
+        if( a[1][2] == ' ')
+        {
+            a[1][2]=d;
+        }
+        return;
+    }
+    if( a[1][2] == d && a[2][2] == d )
+    {
+        if( a[0][2] == ' ')
+        {
+            a[0][2]=d;
+        }
+        return;
+    }
+    if( a[0][0] == d && a[0][1] == d )
+    {
+        if( a[0][2] == ' ')
+        {
+            a[0][2]=d;
+        }
+        return;
+    }
+    if( a[0][0] == d && a[0][2] == d )
+    {
+        if( a[0][1] == ' ')
+        {
+            a[0][1]=d;
+        }
+        return;
+    }
+    if( a[0][1] == d && a[0][2] == d )
+    {
+        if( a[0][0] == ' ')
+        {
+            a[0][0]=d;
+        }
+        return;
+    }
+    if( a[1][0] == d && a[1][1] == d )
+    {
+        if( a[1][2] == ' ')
+        {
+            a[1][2]=d;
+        }
+        return;
+    }
+    if( a[1][0] == d && a[1][2] == d )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == d && a[1][2] == d )
+    {
+        if( a[1][0] == ' ')
+        {
+            a[1][0]=d;
+        }
+        return;
+    }
+    if( a[2][0] == d && a[2][1] == d )
+    {
+        if( a[2][2] == ' ')
+        {
+            a[2][2]=d;
+        }
+        return;
+    }
+    if( a[2][0] == d && a[2][2] == d )
+    {
+        if( a[2][1] == ' ')
+        {
+            a[2][1]=d;
+        }
+        return;
+    }
+    if( a[2][1] == d && a[2][2] == d )
+    {
+        if( a[2][0] == ' ')
+        {
+            a[2][0]=d;
+        }
+        return;
+    }
+    if( a[0][0] == d && a[1][1] == d )
+    {
+        if( a[2][2] == ' ')
+        {
+            a[2][2]=d;
+        }
+        return;
+    }
+    if( a[0][0] == d && a[2][2] == d )           // start from here ::::::.........................................
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == d && a[2][2] == d )
+    {
+        if( a[0][0] == ' ')
+        {
+            a[0][0]=d;
+        }
+        return;
+    }
+    if( a[0][2] == d && a[1][1] == d )
+    {
+        if( a[2][0] == ' ')
+        {
+            a[2][0]=d;
+        }
+        return;
+    }
+    if( a[0][2] == d && a[2][0] == d )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == d && a[2][0] == d )
+    {
+        if( a[0][2] == ' ')
+        {
+            a[0][2]=d;
+        }
+        return;
+    }
+
+    if( a[0][0] == c && a[1][0] == c )
+    {
+        if( a[2][0] == ' ')
+        {
+            a[2][0]=d;
+        }
+        return;
+    }
+    if( a[0][0] == c && a[2][0] == c )
+    {
+        if( a[1][0] == ' ')
+        {
+            a[1][0]=d;
+        }
+        return;
+    }
+    if( a[1][0] == c && a[2][0] == c )
+    {
+        if( a[0][0] == ' ')
+        {
+            a[0][0]=d;
+        }
+        return;
+    }
+    if( a[0][1] == c && a[1][1] == c )
+    {
+        if( a[2][1] == ' ')
+        {
+            a[2][1]=d;
+        }
+        return;
+    }
+    if( a[0][1] == c && a[2][1] == c )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == c && a[2][1] == c )
+    {
+        if( a[0][1] == ' ')
+        {
+            a[0][1]=d;
+        }
+        return;
+    }
+    if( a[0][2] == c && a[1][2] == c )
+    {
+        if( a[2][2] == ' ')
+        {
+            a[2][2]=d;
+        }
+        return;
+    }
+    if( a[0][2] == c && a[2][2] == c )
+    {
+        if( a[1][2] == ' ')
+        {
+            a[1][2]=d;
+        }
+        return;
+    }
+    if( a[1][2] == c && a[2][2] == c )
+    {
+        if( a[0][2] == ' ')
+        {
+            a[0][2]=d;
+        }
+        return;
+    }
+    if( a[0][0] == c && a[0][1] == c )
+    {
+        if( a[0][2] == ' ')
+        {
+            a[0][2]=d;
+        }
+        return;
+    }
+    if( a[0][0] == c && a[0][2] == c )
+    {
+        if( a[0][1] == ' ')
+        {
+            a[0][1]=d;
+        }
+        return;
+    }
+    if( a[0][1] == c && a[0][2] == c )
+    {
+        if( a[0][0] == ' ')
+        {
+            a[0][0]=d;
+        }
+        return;
+    }
+    if( a[1][0] == c && a[1][1] == c )        //****//
+    {
+        if( a[1][2] == ' ')
+        {
+            a[1][2]=d;
+        }
+        return;
+    }
+    if( a[1][0] == c && a[1][2] == c )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == c && a[1][2] == c )
+    {
+        if( a[1][0] == ' ')
+        {
+            a[1][0]=d;
+        }
+        return;
+    }
+    if( a[2][0] == c && a[2][1] == c )
+    {
+        if( a[2][2] == ' ')
+        {
+            a[2][2]=d;
+        }
+        return;
+    }
+    if( a[2][0] == c && a[2][2] == c )
+    {
+        if( a[2][1] == ' ')
+        {
+            a[2][1]=d;
+        }
+        return;
+    }
+    if( a[2][1] == c && a[2][2] == c )
+    {
+        if( a[2][0] == ' ')
+        {
+            a[2][0]=d;
+        }
+        return;
+    }
+    if( a[0][0] == c && a[1][1] == c )
+    {
+        if( a[2][2] == ' ')
+        {
+            a[2][2]=d;
+        }
+        return;
+    }
+    if( a[0][0] == c && a[2][2] == c )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == c && a[2][2] == c )
+    {
+        if( a[0][0] == ' ')
+        {
+            a[0][0]=d;
+        }
+        return;
+    }
+    else if( a[0][2] == c && a[1][1] == c )               //***//
+    {
+        if( a[2][0] == ' ')
+        {
+            a[2][0]=d;
+        }
+        return;
+    }
+    if( a[0][2] == c && a[2][0] == c )
+    {
+        if( a[1][1] == ' ')
+        {
+            a[1][1]=d;
+        }
+        return;
+    }
+    if( a[1][1] == c && a[2][0] == c )
+    {
+        if( a[0][2] == ' ')
+        {
+            a[0][2]=d;
+        }
+        return;
+    }
+
     if( a[1][1] != ' ')
     {
         if( a[0][0] == ' ' )
@@ -235,28 +632,13 @@ void cinput(char d)
         {
             a[2][2] = d;
         }
+        return;
     }
-    else if( a[0][0] != ' ' || a[0][2] != ' ' || a[2][0] !=' ' || a[2][2] != ' ')
+    else if( a[0][0] != ' ' || a[0][2] != ' ' || a[2][0] != ' ' || a[2][2] != ' ')
     {
         if(a[1][1] == ' ')
         {
             a[1][1]=d;
-        }
-        else if( a[0][0] == ' ')
-        {
-            a[0][0]=d;
-        }
-        else if( a[0][2] == ' ')
-        {
-            a[0][2]=d;
-        }
-        else if( a[2][0] == ' ')
-        {
-            a[2][0]=d;
-        }
-        else if( a[2][2] == ' ')
-        {
-            a[0][0]=d;
         }
     }
     else if( a[0][0] != ' ' && a[0][2] != ' ' && a[2][0] != ' ' && a[2][2] != ' ' && a[1][1] != ' ')
@@ -277,71 +659,8 @@ void cinput(char d)
         {
             a[2][1] = d;
         }
+        return;
     }
-    else if( a[0][0] != ' ' && a[0][2] != ' ' && a[2][0] != ' ' && a[2][2] != ' ' )
-    {
-        if( a[1][1] == ' ')
-        {
-            a[1][1]=d;
-        }
-        else if( a[0][1] == ' ' )
-        {
-            a[0][1] = d;
-        }
-        else if( a[1][0] == ' ' )
-        {
-            a[1][0] = d;
-        }
-        else if( a[1][2] == ' ')
-        {
-            a[1][2] = d;
-        }
-        else if( a[2][1] == ' ')
-        {
-            a[2][1] = d;
-        }
-
-    }
-    else if( a[0][1] != ' ' || a[1][0] != ' ' || a[1][2] != ' ' || a[2][1] != ' ')
-    {
-        if( a[1][1] == ' ')
-        {
-            a[1][1]=d;
-        }
-        else if( a[0][0] == ' ' )
-        {
-            a[0][0] = d;
-        }
-        else if( a[0][2] == ' ' )
-        {
-            a[0][2] = d;
-        }
-        else if( a[2][0] == ' ' )
-        {
-            a[2][0] = d;
-        }
-        else if( a[2][2] == ' ' )
-        {
-            a[2][2] = d;
-        }
-        else if( a[0][1] == ' ' )
-        {
-            a[0][1] = d;
-        }
-        else if( a[1][0] == ' ' )
-        {
-            a[1][0] = d;
-        }
-        else if( a[1][2] == ' ')
-        {
-            a[1][2] = d;
-        }
-        else if( a[2][1] == ' ')
-        {
-            a[2][1] = d;
-        }
-    }
-
     else if( a[0][1] != ' ' && a[1][0] != ' ' && a[1][2] != ' ' && a[2][1] != ' ' )
     {
         if( a[1][1] == ' ')
@@ -364,27 +683,39 @@ void cinput(char d)
         {
             a[2][2] = d;
         }
+        return;
     }
 }
-
-
-
-void main()
+void userchoice()
 {
     printf("Enter character you want among 'x' or 'o' :");
-    scanf("%c",&c);
+    scanf(" %c",&c);
     if( c == 'x')
     {
         d = 'o';
     }
-    else if( c == 'o' )
+    else if( c == 'X')
+    {
+        d = 'O';
+    }
+    else if( c == '0')
     {
         d = 'x';
     }
+    else if( c == 'O' )
+    {
+        d = 'X';
+    }
     else
     {
-        printf("Invalid input");
+        printf("\nInvalid input\n");
+        userchoice();
     }
+}
+
+void main()
+{
+    userchoice();
     input(c);
     display();
 }
