@@ -233,192 +233,193 @@ void cinput(char d)
         if( a[2][0] == ' ')
         {
             a[2][0]=d;
+            return;
         }
-        return;
+
     }
     if( a[0][0] == d && a[2][0] == d )
     {
         if( a[1][0] == ' ')
         {
             a[1][0]=d;
+            return;
         }
-        return;
     }
     if( a[1][0] == d && a[2][0] == d )
     {
         if( a[0][0] == ' ')
         {
             a[0][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][1] == d && a[1][1] == d )
     {
         if( a[2][1] == ' ')
         {
             a[2][1]=d;
+            return;
         }
-        return;
     }
     if( a[0][1] == d && a[2][1] == d )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == d && a[2][1] == d )
     {
         if( a[0][1] == ' ')
         {
             a[0][1]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == d && a[1][2] == d )
     {
         if( a[2][2] == ' ')
         {
             a[2][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == d && a[2][2] == d )
     {
         if( a[1][2] == ' ')
         {
             a[1][2]=d;
+            return;
         }
-        return;
     }
     if( a[1][2] == d && a[2][2] == d )
     {
         if( a[0][2] == ' ')
         {
             a[0][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == d && a[0][1] == d )
     {
         if( a[0][2] == ' ')
         {
             a[0][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == d && a[0][2] == d )
     {
         if( a[0][1] == ' ')
         {
             a[0][1]=d;
+            return;
         }
-        return;
     }
     if( a[0][1] == d && a[0][2] == d )
     {
         if( a[0][0] == ' ')
         {
             a[0][0]=d;
+            return;
         }
-        return;
     }
     if( a[1][0] == d && a[1][1] == d )
     {
         if( a[1][2] == ' ')
         {
             a[1][2]=d;
+            return;
         }
-        return;
     }
     if( a[1][0] == d && a[1][2] == d )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == d && a[1][2] == d )
     {
         if( a[1][0] == ' ')
         {
             a[1][0]=d;
+            return;
         }
-        return;
     }
     if( a[2][0] == d && a[2][1] == d )
     {
         if( a[2][2] == ' ')
         {
             a[2][2]=d;
+            return;
         }
-        return;
     }
     if( a[2][0] == d && a[2][2] == d )
     {
         if( a[2][1] == ' ')
         {
             a[2][1]=d;
+            return;
         }
-        return;
     }
     if( a[2][1] == d && a[2][2] == d )
     {
         if( a[2][0] == ' ')
         {
             a[2][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == d && a[1][1] == d )
     {
         if( a[2][2] == ' ')
         {
             a[2][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == d && a[2][2] == d )           // start from here ::::::.........................................
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == d && a[2][2] == d )
     {
         if( a[0][0] == ' ')
         {
             a[0][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == d && a[1][1] == d )
     {
         if( a[2][0] == ' ')
         {
             a[2][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == d && a[2][0] == d )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == d && a[2][0] == d )
     {
         if( a[0][2] == ' ')
         {
             a[0][2]=d;
+            return;
         }
-        return;
     }
 
     if( a[0][0] == c && a[1][0] == c )
@@ -426,192 +427,192 @@ void cinput(char d)
         if( a[2][0] == ' ')
         {
             a[2][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == c && a[2][0] == c )
     {
         if( a[1][0] == ' ')
         {
             a[1][0]=d;
+            return;
         }
-        return;
     }
     if( a[1][0] == c && a[2][0] == c )
     {
         if( a[0][0] == ' ')
         {
             a[0][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][1] == c && a[1][1] == c )
     {
         if( a[2][1] == ' ')
         {
             a[2][1]=d;
+            return;
         }
-        return;
     }
     if( a[0][1] == c && a[2][1] == c )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == c && a[2][1] == c )
     {
         if( a[0][1] == ' ')
         {
             a[0][1]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == c && a[1][2] == c )
     {
         if( a[2][2] == ' ')
         {
             a[2][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == c && a[2][2] == c )
     {
         if( a[1][2] == ' ')
         {
             a[1][2]=d;
+            return;
         }
-        return;
     }
     if( a[1][2] == c && a[2][2] == c )
     {
         if( a[0][2] == ' ')
         {
             a[0][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == c && a[0][1] == c )
     {
         if( a[0][2] == ' ')
         {
             a[0][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == c && a[0][2] == c )
     {
         if( a[0][1] == ' ')
         {
             a[0][1]=d;
+            return;
         }
-        return;
     }
     if( a[0][1] == c && a[0][2] == c )
     {
         if( a[0][0] == ' ')
         {
             a[0][0]=d;
+            return;
         }
-        return;
     }
     if( a[1][0] == c && a[1][1] == c )        //****//
     {
         if( a[1][2] == ' ')
         {
             a[1][2]=d;
+            return;
         }
-        return;
     }
     if( a[1][0] == c && a[1][2] == c )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == c && a[1][2] == c )
     {
         if( a[1][0] == ' ')
         {
             a[1][0]=d;
+            return;
         }
-        return;
     }
     if( a[2][0] == c && a[2][1] == c )
     {
         if( a[2][2] == ' ')
         {
             a[2][2]=d;
+            return;
         }
-        return;
     }
     if( a[2][0] == c && a[2][2] == c )
     {
         if( a[2][1] == ' ')
         {
             a[2][1]=d;
+            return;
         }
-        return;
     }
     if( a[2][1] == c && a[2][2] == c )
     {
         if( a[2][0] == ' ')
         {
             a[2][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == c && a[1][1] == c )
     {
         if( a[2][2] == ' ')
         {
             a[2][2]=d;
+            return;
         }
-        return;
     }
     if( a[0][0] == c && a[2][2] == c )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == c && a[2][2] == c )
     {
         if( a[0][0] == ' ')
         {
             a[0][0]=d;
+            return;
         }
-        return;
     }
-    else if( a[0][2] == c && a[1][1] == c )               //***//
+    if( a[0][2] == c && a[1][1] == c )
     {
         if( a[2][0] == ' ')
         {
             a[2][0]=d;
+            return;
         }
-        return;
     }
     if( a[0][2] == c && a[2][0] == c )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        return;
     }
     if( a[1][1] == c && a[2][0] == c )
     {
         if( a[0][2] == ' ')
         {
             a[0][2]=d;
+            return;
         }
-        return;
     }
 
     if( a[1][1] != ' ')
