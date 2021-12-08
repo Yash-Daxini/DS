@@ -9,7 +9,7 @@ char input(int c)
     int count=0,n;
     while (count!=6)
     {
-        printf("You can enter below positions:\n");
+        printf("\nYou can enter below positions\n");
         for ( i = 0; i < 3; i++)
         {
             for ( j = 0; j < 3; j++)
@@ -60,7 +60,7 @@ char input(int c)
 
         }
 
-    printf("\nEnter your choice :");
+    printf("\n\nEnter your choice :");
     scanf("%d",&choice);
     switch (choice)
     {
@@ -68,6 +68,7 @@ char input(int c)
         if( a[0][0] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[0][0]=c;
         count++;
@@ -76,6 +77,7 @@ char input(int c)
         if( a[0][1] != ' ')
         {
             printf("\nThis spot is already taken choose,another\n");
+            input(c);
         }
         a[0][1]=c;
         count++;
@@ -84,6 +86,7 @@ char input(int c)
         if( a[0][2] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[0][2]=c;
         count++;
@@ -92,6 +95,7 @@ char input(int c)
         if( a[1][0] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[1][0]=c;
         count++;
@@ -100,6 +104,7 @@ char input(int c)
         if( a[1][1] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[1][1]=c;
         count++;
@@ -108,6 +113,7 @@ char input(int c)
         if( a[1][2] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[1][2]=c;
         count++;
@@ -116,6 +122,7 @@ char input(int c)
         if( a[2][0] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[2][0]=c;
         count++;
@@ -124,6 +131,7 @@ char input(int c)
         if( a[2][1] != ' ')
         {
             printf("\nThis spot is already taken , choose another\n");
+            input(c);
         }
         a[2][1]=c;
         count++;
@@ -132,12 +140,14 @@ char input(int c)
         if( a[2][2] != ' ')
         {
             printf("\nThis spot is already taken choose another\n");
+            input(c);
         }
         a[2][2]=c;
         count++;
         break;
     default:
-        printf("Invalid input\n");
+        printf("\nInvalid input\n");
+        input(c);
         break;
     }
     cinput(d);
@@ -687,6 +697,35 @@ void cinput(char d)
             a[2][2] = d;
             return;
         }
+    }
+    if( a[0][1] != ' ' || a[1][0] !=' ' || a[1][2] != ' ' || a[2][1] != ' ')
+    {
+        if( a[1][1] == ' ' )
+        {
+            a[0][0] = d;
+            return;
+        }
+        if( a[0][0] == ' ' )
+        {
+            a[0][2] = d;
+            return;
+        }
+        if( a[0][2] == ' ' )
+        {
+            a[0][2] = d;
+            return;
+        }
+        if( a[2][0] == ' ')
+        {
+            a[2][0] = d;
+            return;
+        }
+        if( a[2][2] == ' ')
+        {
+            a[2][2] = d;
+            return;
+        }
+
     }
 }
 void userchoice()
