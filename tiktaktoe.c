@@ -1,20 +1,11 @@
 #include"stdio.h"
 
 int a[3][3],i,j,choice;
-
-
+int flag=1;
 char c,d;
-
 
 char input(int c)
 {
-    for ( i = 0; i < 3; i++)
-    {
-        for ( j = 0; j < 3; j++)
-        {
-            a[i][j]=' ';
-        }
-    }
     int count=0,n;
     while (count!=6)
     {
@@ -84,7 +75,7 @@ char input(int c)
     case 2:
         if( a[0][1] != ' ')
         {
-            printf("\nThis spot is already taken choose , another\n");
+            printf("\nThis spot is already taken choose,another\n");
         }
         a[0][1]=c;
         count++;
@@ -518,7 +509,7 @@ void cinput(char d)
             return;
         }
     }
-    if( a[1][0] == c && a[1][1] == c )        //****//
+    if( a[1][0] == c && a[1][1] == c )
     {
         if( a[1][2] == ' ')
         {
@@ -620,71 +611,82 @@ void cinput(char d)
         if( a[0][0] == ' ' )
         {
             a[0][0] = d;
+            return;
         }
-        else if( a[0][2] == ' ' )
+        if( a[0][2] == ' ' )
         {
             a[0][2] = d;
+            return;
         }
-        else if( a[2][0] == ' ')
+        if( a[2][0] == ' ')
         {
             a[2][0] = d;
+            return;
         }
-        else if( a[2][2] == ' ')
+        if( a[2][2] == ' ')
         {
             a[2][2] = d;
+            return;
         }
-        return;
     }
-    else if( a[0][0] != ' ' || a[0][2] != ' ' || a[2][0] != ' ' || a[2][2] != ' ')
+    if( a[0][0] != ' ' || a[0][2] != ' ' || a[2][0] != ' ' || a[2][2] != ' ')
     {
         if(a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
     }
-    else if( a[0][0] != ' ' && a[0][2] != ' ' && a[2][0] != ' ' && a[2][2] != ' ' && a[1][1] != ' ')
+    if( a[0][0] != ' ' && a[0][2] != ' ' && a[2][0] != ' ' && a[2][2] != ' ' && a[1][1] != ' ')
     {
         if( a[0][1] == ' ' )
         {
             a[0][1] = d;
+            return;
         }
-        else if( a[1][0] == ' ' )
+        if( a[1][0] == ' ' )
         {
             a[1][0] = d;
+            return;
         }
-        else if( a[1][2] == ' ')
+        if( a[1][2] == ' ')
         {
             a[1][2] = d;
+            return;
         }
-        else if( a[2][1] == ' ')
+        if( a[2][1] == ' ')
         {
             a[2][1] = d;
+            return;
         }
-        return;
     }
-    else if( a[0][1] != ' ' && a[1][0] != ' ' && a[1][2] != ' ' && a[2][1] != ' ' )
+    if( a[0][1] != ' ' && a[1][0] != ' ' && a[1][2] != ' ' && a[2][1] != ' ' )
     {
         if( a[1][1] == ' ')
         {
             a[1][1]=d;
+            return;
         }
-        else if( a[0][0] == ' ' )
+        if( a[0][0] == ' ' )
         {
             a[0][0] = d;
+            return;
         }
-        else if( a[0][2] == ' ' )
+        if( a[0][2] == ' ' )
         {
             a[0][2] = d;
+            return;
         }
-        else if( a[2][0] == ' ' )
+        if( a[2][0] == ' ' )
         {
             a[2][0] = d;
+            return;
         }
-        else if( a[2][2] == ' ' )
+        if( a[2][2] == ' ' )
         {
             a[2][2] = d;
+            return;
         }
-        return;
     }
 }
 void userchoice()
@@ -717,6 +719,13 @@ void userchoice()
 void main()
 {
     userchoice();
+    for ( i = 0; i < 3; i++)
+{
+    for ( j = 0; j < 3; j++)
+    {
+        a[i][j]=' ';
+        }
+    }
     input(c);
     display();
 }
