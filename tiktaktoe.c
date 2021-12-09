@@ -1,13 +1,13 @@
 #include"stdio.h"
 
 int a[3][3],i,j,choice;
-int flag=1;
+int flag=0;
 char c,d;
 
 char input(int c)
 {
     int count=0,n;
-    while (count!=6)
+    while (flag==0)
     {
         printf("\nYou can enter below positions\n");
         for ( i = 0; i < 3; i++)
@@ -64,6 +64,9 @@ char input(int c)
     scanf("%d",&choice);
     switch (choice)
     {
+    case 0:
+        return 0;
+        break;
     case 1:
         if( a[0][0] != ' ')
         {
@@ -177,31 +180,37 @@ void winlose()
     int count=0;
     if( (a[0][0] == c && a[0][1] == c && a[0][2] == c) ||  ( a[1][0] == c && a[1][1] == c &&  a[1][2] == c ) || ( a[2][0] == c && a[2][1] == c &&  a[2][2] == c) )
     {
+        flag=1;
         printf("\n\tYOU WIN\n");
         exit(1);
     }
     else if( (a[0][0] == c && a[1][0] == c &&  a[2][0] == c) ||  ( a[0][1] == c && a[1][1] == c && a[2][1] == c ) || ( a[0][2] == c &&  a[1][2] == c &&  a[2][2] == c) )
     {
+        flag=1;
         printf("\n\tYOU WIN\n");
         exit(1);
     }
     else if(( a[0][0] == c && a[1][1] == c && a[2][2] == c ) ||  ( a[2][0] == c && a[1][1] == c && a[0][2] == c) )
     {
+        flag=1;
         printf("\n\tYOU WIN\n");
         exit(1);
     }
     else if( (a[0][0] == d && a[0][1] == d && a[0][2] == d) ||  ( a[1][0] == d && a[1][1] == d &&  a[1][2] == d ) || ( a[2][0] == d && a[2][1] == d &&  a[2][2] == d ) )
     {
+        flag=1;
         printf("\n\tYOU LOSE\n");
         exit(1);
     }
     else if( (a[0][0] == d && a[1][0] == d &&  a[2][0] == d ) ||  ( a[0][1] == d && a[1][1] == d && a[2][1] == d ) || ( a[0][2] == d &&  a[1][2] == d &&  a[2][2] == d) )
     {
+        flag=1;
         printf("\n\tYOU LOSE\n");
         exit(1);
     }
     else if( (a[0][0] == d && a[1][1] == d && a[2][2] == d ) ||  ( a[2][0] == d && a[1][1] == d && a[0][2] == d )  )
     {
+        flag=1;
         printf("\n\tYOU LOSE\n");
         exit(1);
     }
@@ -219,6 +228,7 @@ void winlose()
         }
         if(count == 9)
         {
+            flag=1;
             printf("\n\tMatch draw\n");
             exit(1);
         }
@@ -382,7 +392,7 @@ void cinput(char d)
             return;
         }
     }
-    if( a[0][0] == d && a[2][2] == d )           // start from here ::::::.........................................
+    if( a[0][0] == d && a[2][2] == d )
     {
         if( a[1][1] == ' ')
         {
@@ -732,6 +742,7 @@ void userchoice()
 {
     printf("Enter character you want among 'x' or 'o' :");
     scanf(" %c",&c);
+    printf("\nPress 0 for exit the game\n");
     if( c == 'x')
     {
         d = 'o';
